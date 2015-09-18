@@ -1,5 +1,5 @@
 # convertSAStoCSV
-Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) and CSV formats.
+Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) and CSV formats
 
 ## Features
 * Either import from CSV to SAS or export from SAS to CSV
