@@ -36,4 +36,5 @@ For 32-bit EG on 64-bit Windows, use the counterintuitive version c:\Windows\Sys
 
 ## Inspiration
 [Doing More with EG Automation - PDF](http://support.sas.com/documentation/onlinedoc/guide/examples/SASGF2012/Hemedinger_298-2012.pdf)
+
 [Doing More with EG Automation - SAS Community](http://www.sascommunity.org/wiki/Not_Just_for_Scheduling:_Doing_More_with_SAS_Enterprise_Guide_Automation)
