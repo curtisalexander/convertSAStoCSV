@@ -2,13 +2,13 @@
 ' convertSAStoCSV.vbs
 '
 ' Description:
-' 	Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) and CSV formats
+'   Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) and CSV formats
 '
 ' Features:
 '   - Either import from CSV to SAS or export from SAS to CSV
-'		- Set SAS log file location
-'     - If a SAS log file is not explicitly noted, then the log is saved in the same directory as the executing script
-'		- Utilize a where clause on the SAS dataset
+'       - Set SAS log file location
+'   - If a SAS log file is not explicitly noted, then the log is saved in the same directory as the executing script
+'   - Utilize a where clause on the SAS dataset
 '   - Protects against accidental replacing of files
 '       - Prompts the user to replace a file if it already exists
 '   - Set the EG profile name using a configuration file
@@ -16,28 +16,28 @@
 '
 ' Options:
 '   Required:
-'     /conv:    ==> conversion type - either an import or an export
-'     /sas:     ==> location of SAS file, requires sas7bdat extension
-'     /csv:     ==> location of CSV file, requires csv extension
+'       /conv:      ==> conversion type - either an import or an export
+'       /sas:       ==> location of SAS file, requires sas7bdat extension
+'       /csv:       ==> location of CSV file, requires csv extension
 '
 '   Optional:
-'     /log:     ==> location of log file
-'     /config:  ==> location of config file
-'                   formatted as an ini file, does not require ini extension
-'                   used to set the EG profile and any other config options
-'     /where:   ==> where clause to be applied to SAS file
-'     /repl     ==> if argument is used, always replace output
+'       /log:       ==> location of log file
+'       /config:    ==> location of config file
+'                       formatted as an ini file, does not require ini extension
+'                       used to set the EG profile and any other config options
+'       /where:     ==> where clause to be applied to SAS file
+'       /repl       ==> if argument is used, always replace output
 '
 '   Help:
-'		 /help		  ==> print argument options and usage
+'       /help       ==> print argument options and usage
 '
 ' Example Usage:
 '   cscript convertSAStoCSV.vbs /help
 '
-'	Requirements:
+' Requirements:
 '   Requires matching version of cscript.exe with SAS Enterprise Guide
 '   For 32-bit EG on 64-bit Windows, use the counterintuitive version
-'     c:\Windows\SysWOW64\cscript.exe
+'       c:\Windows\SysWOW64\cscript.exe
 '------------------------------------------------
 
 ' force declaration of variables in VB Script
@@ -46,7 +46,7 @@ Option Explicit
 ' ----------------
 ' Argument Parsing and Checking
 ' ----------------
-
+  
 ' print help
 If WScript.Arguments.Named.Exists("help") Then
   Call echoAndQuit("", "help")
@@ -204,10 +204,10 @@ Dim procExportWhere
 Dim procImportWhere
 If whereClause <> "" Then
 	procExportWhere = "proc export data=sasdir." & sasDatasetName _
-										& "(where=(" & whereClause & "))"
+                    & "(where=(" & whereClause & "))"
 
 	procImportWhere = " out=sasdir." & sasDatasetName _
-										& "(where=(" & whereClause & "))" & ";"
+                    & "(where=(" & whereClause & "))" & ";"
 Else
 	procExportWhere = "proc export data=sasdir." & sasDatasetName
 	procImportWhere = "out=sasdir." & sasDatasetName & ";"
@@ -215,18 +215,18 @@ End If
 
 Dim procExport
 procExport = 	procExportWhere _
-						 	& " outfile=" & Q(csvFile) _
-					   	& " dbms=csv" _
-							& " replace;" _
-							& " run; "
+              & " outfile=" & Q(csvFile) _
+              & " dbms=csv" _
+              & " replace;" _
+              & " run; "
 
 Dim procImport
 procImport = 	"proc import datafile=" & Q(csvFile) _
-							& " dbms=csv" _
-							& " replace" _
-							& procImportWhere _
-							& " guessingrows=5000;" _
-							& " run; "
+              & " dbms=csv" _
+              & " replace" _
+              & procImportWhere _
+              & " guessingrows=5000;" _
+              & " run; "
 
 If convType = "export" Then
 	SASProgram.Text = sasLibname & procExport
@@ -329,7 +329,7 @@ End Function
 ' read config file
 ' return a dictionary within a dictionary
 ' Example:
-'   If I have an config file in ini format
+'   If I have a config file in ini format
 '     [section1]
 '     a = 1
 '     b = 2
@@ -400,18 +400,18 @@ Function getConfigVars(configFile, wantedSection, wantedKey)
         End If
       Next
       If finalItem = "" Then
-        errorMsg = "There is not a " & wantedKey & " variable " _
-                   & "within the config file " & configFile _
-                   & vbNewLine & vbNewLine _
-                   & "  The config file should be formatted as below" _
-                   & vbNewLine & vbNewLine _
-                   & "    [EGProfile]" _
-                   & vbNewLine _
-                   & "    profile=myEGProfile" _
-                   & vbNewLine & vbNewLine _
-                   & "    [ApplicationServer]" _
-                   & vbNewLine _
-                   & "    server=SASApp"
+        errorMsg =  "There is not a " & wantedKey & " variable " _
+                    & "within the config file " & configFile _
+                    & vbNewLine & vbNewLine _
+                    & "  The config file should be formatted as below" _
+                    & vbNewLine & vbNewLine _
+                    & "    [EGProfile]" _
+                    & vbNewLine _
+                    & "    profile=myEGProfile" _
+                    & vbNewLine & vbNewLine _
+                    & "    [ApplicationServer]" _
+                    & vbNewLine _
+                    & "    server=SASApp"
         Call echoAndQuit(errorMsg, "err")
       End If
     End If
