@@ -19,19 +19,17 @@ Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) an
 
 * Optional:
   * /log:     ==> location of log file
-  * /config:  ==> location of config file
-                  formatted as an ini file, does not require ini extension
-                  used to set the EG profile and any other config options
+  * /config:  ==> location of config file; formatted as an ini file, does not require ini extension; used to set the EG profile and any other config options
   * /where:   ==> where clause to be applied to SAS file
   * /repl     ==> if argument is used, always replace output
 
 * Help:
   * /help		  ==> print argument options and usage
 
-## Example Usage:
+## Example Usage
   * cscript convertSAStoCSV.vbs /help
 
-## Requirements:
+## Requirements
 Requires matching version of cscript.exe with SAS Enterprise Guide.
 
 For 32-bit EG on 64-bit Windows, use the counterintuitive version c:\Windows\SysWOW64\cscript.exe
