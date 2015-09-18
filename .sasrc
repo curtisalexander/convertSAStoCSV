@@ -1,0 +1,8 @@
+; for use with the following scripts
+;   - convertSAStoCSV.vbs
+
+[EGProfile]
+profile=myprofilename
+
+[ApplicationServer]
+server=SASApp
