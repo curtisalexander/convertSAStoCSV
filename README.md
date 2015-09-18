@@ -33,3 +33,7 @@ Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) an
 Requires matching version of cscript.exe with SAS Enterprise Guide.
 
 For 32-bit EG on 64-bit Windows, use the counterintuitive version c:\Windows\SysWOW64\cscript.exe
+
+## Inspiration
+[Doing More with EG Automation - PDF](http://support.sas.com/documentation/onlinedoc/guide/examples/SASGF2012/Hemedinger_298-2012.pdf)
+[Doing More with EG Automation - SAS Community](http://www.sascommunity.org/wiki/Not_Just_for_Scheduling:_Doing_More_with_SAS_Enterprise_Guide_Automation)
