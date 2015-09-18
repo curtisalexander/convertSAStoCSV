@@ -70,13 +70,13 @@ Dim csvFileExtension : csvFileExtension = getExtension(csvFile)
 
 ' check required command line arguments
 If sasBinaryFile = "" OR _
- 	 csvFile = "" OR _
- 	 convType = "" Then
-	Call echoAndQuit("Script requires three arguments - /sas: /csv: /conv:", "err")
+   csvFile = "" OR _
+   convType = "" Then
+  Call echoAndQuit("Script requires three arguments - /sas: /csv: /conv:", "err")
 End If
 
 If InStr(sasBinaryFile, "sas7bdat") = 0 Then
-	Call echoAndQuit("The named argument '/sas:' should be the full path name to the SAS binary file, including sas7bdat extension", "err")
+  Call echoAndQuit("The named argument '/sas:' should be the full path name to the SAS binary file, including sas7bdat extension", "err")
 End If
 
 If InStr(csvFile, "csv") = 0 Then
