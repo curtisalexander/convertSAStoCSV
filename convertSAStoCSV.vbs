@@ -80,18 +80,18 @@ If InStr(sasBinaryFile, "sas7bdat") = 0 Then
 End If
 
 If InStr(csvFile, "csv") = 0 Then
-	Call echoAndQuit("The named argument '/csv:' should be the full path name to the CSV file, including csv extension", "err")
+  Call echoAndQuit("The named argument '/csv:' should be the full path name to the CSV file, including csv extension", "err")
 End If
 
 If convType <> "import" AND _
-	 convType <> "export" Then
-	Call echoAndQuit("The named argument '/conv:' must be either import or export", "err")
+   convType <> "export" Then
+  Call echoAndQuit("The named argument '/conv:' must be either import or export", "err")
 End If
 
 ' check if config file exists
 Dim sasRCFile
 If configFile = "" Then
-  sasRCFile = getUserProfile() & "\.sasrc"
+   sasRCFile = getUserProfile() & "\.sasrc"
   If Not dataFileExists(sasRCFile) Then
     Dim errorMsg : errorMsg = "A configuration file does not exist.  " _
                               & "The default file assumed is " _
@@ -108,24 +108,24 @@ End If
 
 ' check if SAS and CSV files exist
 If convType = "import" Then
-	If dataFileExists(sasBinaryFile) AND Not replExists Then
-		' run for side effects
-		Call fileWriteExists(sasDatasetName, sasFileExtension)
-	End If
-	If Not dataFileExists(csvFile) Then
-		' run for side effects
-		Call fileReadNotExists(csvFileName, csvFileExtension)
-	End If
+  If dataFileExists(sasBinaryFile) AND Not replExists Then
+    ' run for side effects
+    Call fileWriteExists(sasDatasetName, sasFileExtension)
+  End If
+  If Not dataFileExists(csvFile) Then
+    ' run for side effects
+    Call fileReadNotExists(csvFileName, csvFileExtension)
+  End If
 ' convType = "export"
 Else
-	If dataFileExists(csvFile) AND Not replExists Then
-		' run for side effects
-		Call fileWriteExists(csvFileName, csvFileExtension)
-	End If
-	If Not dataFileExists(sasBinaryFile) Then
-		' run for side effects
-		Call fileReadNotExists(sasDatasetName, sasFileExtension)
-	End If
+  If dataFileExists(csvFile) AND Not replExists Then
+    ' run for side effects
+    Call fileWriteExists(csvFileName, csvFileExtension)
+  End If
+  If Not dataFileExists(sasBinaryFile) Then
+    ' run for side effects
+    Call fileReadNotExists(sasDatasetName, sasFileExtension)
+  End If
 End If
 
 ' optional
