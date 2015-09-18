@@ -203,25 +203,25 @@ Dim sasLibname : sasLibname = "libname sasdir " & Q(sasFileDir) & "; "
 Dim procExportWhere
 Dim procImportWhere
 If whereClause <> "" Then
-	procExportWhere = "proc export data=sasdir." & sasDatasetName _
+  procExportWhere = "proc export data=sasdir." & sasDatasetName _
                     & "(where=(" & whereClause & "))"
 
-	procImportWhere = " out=sasdir." & sasDatasetName _
+  procImportWhere = " out=sasdir." & sasDatasetName _
                     & "(where=(" & whereClause & "))" & ";"
 Else
-	procExportWhere = "proc export data=sasdir." & sasDatasetName
-	procImportWhere = "out=sasdir." & sasDatasetName & ";"
+  procExportWhere = "proc export data=sasdir." & sasDatasetName
+  procImportWhere = "out=sasdir." & sasDatasetName & ";"
 End If
 
 Dim procExport
-procExport = 	procExportWhere _
+procExport =  procExportWhere _
               & " outfile=" & Q(csvFile) _
               & " dbms=csv" _
               & " replace;" _
               & " run; "
 
 Dim procImport
-procImport = 	"proc import datafile=" & Q(csvFile) _
+procImport =  "proc import datafile=" & Q(csvFile) _
               & " dbms=csv" _
               & " replace" _
               & procImportWhere _
@@ -229,18 +229,18 @@ procImport = 	"proc import datafile=" & Q(csvFile) _
               & " run; "
 
 If convType = "export" Then
-	SASProgram.Text = sasLibname & procExport
+  SASProgram.Text = sasLibname & procExport
 Else
-	SASProgram.Text = sasLibname & procImport
+  SASProgram.Text = sasLibname & procImport
 End If
 
 SASProgram.Run
 
 ' Save the log file to disk
 If sasLog = "" Then
-	SASProgram.Log.SaveAs Replace(WScript.ScriptFullName, ".vbs", ".log")
+  SASProgram.Log.SaveAs Replace(WScript.ScriptFullName, ".vbs", ".log")
 Else
-	SASProgram.Log.SaveAs sasLog
+  SASProgram.Log.SaveAs sasLog
 End If
 
 Application.Quit
@@ -259,70 +259,70 @@ End Function
 ' return \\server\folder1 when given
 ' 	the file path \\server\folder1\myfile.csv
 Function getBasePath(fullPath)
-	Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
-	getBasePath = fso.GetParentFolderName(fullPath)
+  Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
+  getBasePath = fso.GetParentFolderName(fullPath)
 End Function
 
 ' return myfile when given
 '		the file path \\server\folder1\myfile.csv
 Function getFileNoExt(fullPath)
-	Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
-	getFileNoExt = fso.GetBaseName(fullPath)
+  Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
+  getFileNoExt = fso.GetBaseName(fullPath)
 End Function
 
 ' return csv when given
 '		the file path \\server\folder1\myfile.csv
 Function getExtension(fullPath)
-	Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
-	getExtension = fso.GetExtensionName(fullPath)
+  Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
+  getExtension = fso.GetExtensionName(fullPath)
 End Function
 
 ' quote a string
 Function Q(s)
-	Q = chr(34) & s & chr(34)
+  Q = chr(34) & s & chr(34)
 End Function
 
 ' file exists
 Function dataFileExists(fullPath)
-	Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
-	dataFileExists = fso.FileExists(fullPath)
+  Dim fso : Set fso = CreateObject("Scripting.FileSystemObject")
+  dataFileExists = fso.FileExists(fullPath)
 End Function
 
 ' prompt for and get back result from stdin
 Function getStdIn(prompt)
-	WScript.Echo prompt & " "
-	WScript.StdIn.Read(0)
-	getStdIn = WScript.StdIn.ReadLine()
+  WScript.Echo prompt & " "
+  WScript.StdIn.Read(0)
+  getStdIn = WScript.StdIn.ReadLine()
 End Function
 
 ' file to write already exists
 Function fileWriteExists(dsName, dsExtension)
-	WScript.Echo ""
-	Dim replacePrompt
-	replacePrompt = "The file " & dsName & "." & dsExtension _
-						 & " already exists.  Would you like to replace " _
-						 & dsName & "." & dsExtension & "? [Y/N] "
-	Dim userReply
-	userReply = getStdIn(replacePrompt)
-	while userReply <> "Y" AND _
-		  	userReply <> "y" AND _
-		  	userReply <> "N" AND _
-		  	userReply <> "n"
-		WScript.Echo ""
-		WScript.Echo "Expecting either 'Y' or 'N'"
-		userReply = getStdIn(replacePrompt)
-	Wend
-	If userReply = "N" OR userReply = "n" Then
-		WScript.Quit -1
-	End If
+  WScript.Echo ""
+  Dim replacePrompt
+  replacePrompt = "The file " & dsName & "." & dsExtension _
+                  & " already exists.  Would you like to replace " _
+                  & dsName & "." & dsExtension & "? [Y/N] "
+  Dim userReply
+  userReply = getStdIn(replacePrompt)
+  while userReply <> "Y" AND _
+        userReply <> "y" AND _
+        userReply <> "N" AND _
+        userReply <> "n"
+    WScript.Echo ""
+    WScript.Echo "Expecting either 'Y' or 'N'"
+    userReply = getStdIn(replacePrompt)
+  Wend
+  If userReply = "N" OR userReply = "n" Then
+    WScript.Quit -1
+  End If
 End Function
 
 ' file to read does not exist
 Function fileReadNotExists(dsName, dsExtension)
-	WScript.Echo ""
-	WScript.Echo "The file " & dsName & "." & dsExtension _
-						   & " does not exist."
-	WScript.Echo ""
+  WScript.Echo ""
+  WScript.Echo "The file " & dsName & "." & dsExtension _
+               & " does not exist."
+  WScript.Echo ""
   WScript.Quit -1
 End Function
 
@@ -417,8 +417,8 @@ Function getConfigVars(configFile, wantedSection, wantedKey)
     End If
   Next
   If finalSection = "" Then
-    errorMsg = "There is not {a, an} " & wantedSection & " section within " _
-               & "the config file " & configFile
+    errorMsg =  "There is not {a, an} " & wantedSection & " section within " _
+                & "the config file " & configFile
     Call echoAndQuit(errorMsg, "err")
   End If
   getConfigVars = finalItem
@@ -426,13 +426,13 @@ End Function
 
 Function echoAndQuit(msgStatement, msgType)
   If msgType = "err" Then
-  	WScript.Echo ""
-  	WScript.Echo "#########"
-  	WScript.Echo "# Error #"
-  	WScript.Echo "#########"
-  	WScript.Echo ""
-  	WScript.Echo "  " & msgStatement
-  	WScript.Echo ""
+    WScript.Echo ""
+    WScript.Echo "#########"
+    WScript.Echo "# Error #"
+    WScript.Echo "#########"
+    WScript.Echo ""
+    WScript.Echo "  " & msgStatement
+    WScript.Echo ""
   Else
     WScript.Echo "#############"
     WScript.Echo "# Arguments #"
@@ -452,30 +452,30 @@ Function echoAndQuit(msgStatement, msgType)
     WScript.Echo "    /repl     ==> if argument is used, always replace output"
     WScript.Echo "    /help     ==> print argument options and usage"
   End If
-	WScript.Echo ""
+  WScript.Echo ""
   WScript.Echo "#################"
-	WScript.Echo "# Example Usage #"
+  WScript.Echo "# Example Usage #"
   WScript.Echo "#################"
   WScript.Echo ""
   WScript.Echo "  Required:"
   WScript.Echo ""
-	WScript.Echo "    Export from SAS to CSV"
+  WScript.Echo "    Export from SAS to CSV"
   WScript.Echo ""
-	WScript.Echo "      cscript convertSAStoCSV.vbs /conv:export /sas:" & Q("\\server\SAS Files\myfile.sas7bdat") & " /csv:" & Q("\\server\CSV Files\myfile.csv")
+  WScript.Echo "      cscript convertSAStoCSV.vbs /conv:export /sas:" & Q("\\server\SAS Files\myfile.sas7bdat") & " /csv:" & Q("\\server\CSV Files\myfile.csv")
   WScript.Echo ""
-	WScript.Echo "    Import from CSV to SAS"
+  WScript.Echo "    Import from CSV to SAS"
   WScript.Echo ""
-	WScript.Echo "      cscript convertSAStoCSV.vbs /conv:import /sas:" & Q("\\server\SAS Files\myfile.sas7bdat") & " /csv:" & Q("\\server\CSV Files\myfile.csv")
-	WScript.Echo ""
-	WScript.Echo ""
+  WScript.Echo "      cscript convertSAStoCSV.vbs /conv:import /sas:" & Q("\\server\SAS Files\myfile.sas7bdat") & " /csv:" & Q("\\server\CSV Files\myfile.csv")
+  WScript.Echo ""
+  WScript.Echo ""
   WScript.Echo "  All Options:"
   WScript.Echo ""
-	WScript.Echo "    Export from SAS to CSV"
+  WScript.Echo "    Export from SAS to CSV"
   WScript.Echo ""
-	WScript.Echo "      cscript convertSAStoCSV.vbs /conv:export /sas:" & Q("\\server\SAS Files\myfile.sas7bdat") & " /csv:" & Q("\\server\CSV Files\myfile.csv") & " /log:" & Q("\\server\Log Files\myfile.log") & " /config:" & Q("\\server\Config Files\myconfigfile") & " /where:" & Q("myvariable < 10") & " /repl"
+  WScript.Echo "      cscript convertSAStoCSV.vbs /conv:export /sas:" & Q("\\server\SAS Files\myfile.sas7bdat") & " /csv:" & Q("\\server\CSV Files\myfile.csv") & " /log:" & Q("\\server\Log Files\myfile.log") & " /config:" & Q("\\server\Config Files\myconfigfile") & " /where:" & Q("myvariable < 10") & " /repl"
   WScript.Echo ""
-	WScript.Echo "    Import from CSV to SAS"
+  WScript.Echo "    Import from CSV to SAS"
   WScript.Echo ""
-	WScript.Echo "      cscript convertSAStoCSV.vbs /conv:import /sas:" & Q("\\server\SAS Files\myfile.sas7bdat") & " /csv:" & Q("\\server\CSV Files\myfile.csv") & " /log:" & Q("\\server\Log Files\myfile.log") & " /config:" & Q("\\server\Config Files\myconfigfile") & " /where:" & Q("myvariable < 10") & " /repl"
-	WScript.Quit -1
+  WScript.Echo "      cscript convertSAStoCSV.vbs /conv:import /sas:" & Q("\\server\SAS Files\myfile.sas7bdat") & " /csv:" & Q("\\server\CSV Files\myfile.csv") & " /log:" & Q("\\server\Log Files\myfile.log") & " /config:" & Q("\\server\Config Files\myconfigfile") & " /where:" & Q("myvariable < 10") & " /repl"
+  WScript.Quit -1
 End Function
