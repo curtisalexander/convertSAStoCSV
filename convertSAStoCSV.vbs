@@ -10,7 +10,7 @@
 '   - If a SAS log file is not explicitly noted, then the log is saved in the same directory as the executing script
 '   - Utilize a where clause on the SAS dataset
 '   - Protects against accidental replacing of files
-'       - Prompts the user to replace a file if it already exists
+'   - Prompts the user to replace a file if it already exists
 '   - Set the EG profile name using a configuration file
 '   - Check command line arguments
 '
