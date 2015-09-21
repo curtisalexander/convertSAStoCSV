@@ -6,7 +6,7 @@
 '
 ' Features:
 '   - Either import from CSV to SAS or export from SAS to CSV
-'       - Set SAS log file location
+'   - Set SAS log file location
 '   - If a SAS log file is not explicitly noted, then the log is saved in the same directory as the executing script
 '   - Utilize a where clause on the SAS dataset
 '   - Protects against accidental replacing of files
