@@ -34,6 +34,8 @@ Requires matching version of cscript.exe with SAS Enterprise Guide.
 For 32-bit EG on 64-bit Windows, use the counterintuitive version c:\Windows\SysWOW64\cscript.exe
 
 ## Inspiration
+Thanks to [Chris Hemedinger](https://github.com/cjdinger)
+
 #### Reading
 [Doing More with EG Automation - PDF](http://support.sas.com/documentation/onlinedoc/guide/examples/SASGF2012/Hemedinger_298-2012.pdf)
 
