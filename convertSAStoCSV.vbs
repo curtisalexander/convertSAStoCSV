@@ -169,7 +169,7 @@ Set Application = WScript.CreateObject("SASEGObjectModel.Application.5.1")
 ' the profile name is set within a config file
 ' the config file should be of the form
 '   [EGProfile]
-'   profile = myprofile
+'   profile=myprofilename
 ' script echoSASProfile.vbs can be used to select from possible profiles
 '   in order to create the needed config file
 
