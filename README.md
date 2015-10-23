@@ -6,7 +6,7 @@ Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) an
 * Set SAS log file location
 * If a SAS log file is not explicitly noted, then the log is saved in the same directory as the executing script
 * Utilize a where clause on the SAS dataset
-* Protects against accidental replacing of files by prompting the user t    o replace a file if it already exists
+* Protects against accidental replacing of files by prompting the user to replace a file if it already exists
 * Set the EG profile name using a configuration file
 * Check command line arguments
 
