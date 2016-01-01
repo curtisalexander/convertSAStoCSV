@@ -25,8 +25,8 @@ Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) an
 * Help:
   * `/help`		  ==> print argument options and usage
 
-## Example Usage
-  * `cscript convertSAStoCSV.vbs /help`
+## Example
+Run `cscript convertSAStoCSV.vbs /help` to get a list of examples.
 
 ## Requirements
 Requires matching version of cscript.exe with SAS Enterprise Guide.
