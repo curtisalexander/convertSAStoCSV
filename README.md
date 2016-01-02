@@ -46,4 +46,4 @@ Thanks to [Chris Hemedinger](https://github.com/cjdinger) for his Enterprise Gui
 [Doing More with EG Automation - SAS Community](http://www.sascommunity.org/wiki/Not_Just_for_Scheduling:_Doing_More_with_SAS_Enterprise_Guide_Automation)
 
 #### Code
-[Run SAS program "like a batch job"](http://support.sas.com/documentation/onlinedoc/guide/examples/SASGF2012/BatchProject.vbs.txt)
+[Run a SAS program "like a batch job"](http://support.sas.com/documentation/onlinedoc/guide/examples/SASGF2012/BatchProject.vbs.txt)
