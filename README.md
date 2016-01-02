@@ -29,8 +29,17 @@ Help:
     /help       ==> print argument options and usage
 ```
 
-## Example
-Run `cscript convertSAStoCSV.vbs /help` to get a list of examples.
+## Examples
+* Minimum Required
+    * Export from SAS to CSV
+        * `cscript convertSAStoCSV.vbs /conv:export /sas:"\\server\SAS Files\myfile.sas7bdat" /csv:"\\server\CSV Files\myfile.csv"`
+    * Import from CSV to SAS
+        * `cscript convertSAStoCSV.vbs /conv:import /sas:"\\server\SAS Files\myfile.sas7bdat" /csv:"\\server\CSV Files\myfile.csv"`
+* All Options
+    * Export from SAS to CSV
+        * `cscript convertSAStoCSV.vbs /conv:export /sas:"\\server\SAS Files\myfile.sas7bdat" /csv:"\\server\CSV Files\myfile.csv" /log:"\\server\Log Files\myfile.log" /config:"\\server\Config Files\myconfigfile" /where:"myvariable < 10" /repl`
+    * Import from CSV to SAS
+        * `cscript convertSAStoCSV.vbs /conv:import /sas:"\\server\SAS Files\myfile.sas7bdat" /csv:"\\server\CSV Files\myfile.csv" /log:"\\server\Log Files\myfile.log" /config:"\\server\Config Files\myconfigfile" /where:"myvariable < 10" /repl`
 
 ## Requirements
 Requires matching version of cscript.exe with SAS Enterprise Guide.
