@@ -11,19 +11,23 @@ Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) an
 * Check command line arguments
 
 ## Options
-* Required:
-  * `/conv:`    ==> conversion type - either an import or an export
-  * `/sas:`     ==> location of SAS file, requires sas7bdat extension
-  * `/csv:`     ==> location of CSV file, requires csv extension
+```
+Required:
+    /conv:      ==> conversion type - either an import or an export
+    /sas:       ==> location of SAS file, requires sas7bdat extension
+    /csv:       ==> location of CSV file, requires csv extension
 
-* Optional:
-  * `/log:`     ==> location of log file
-  * `/config:`  ==> location of config file; formatted as an ini file, does not require ini extension; used to set the EG profile and any other config options
-  * `/where:`   ==> where clause to be applied to SAS file
-  * `/repl`     ==> if argument is used, always replace output
+Optional:
+    /log:       ==> location of log file
+    /config:    ==> location of config file
+                    formatted as an ini file, does not require ini extension
+                    used to set the EG profile and any other config options
+    /where:     ==> where clause to be applied to SAS file
+    /repl       ==> if argument is used, always replace output
 
-* Help:
-  * `/help`		==> print argument options and usage
+Help:
+    /help       ==> print argument options and usage
+```
 
 ## Example
 Run `cscript convertSAStoCSV.vbs /help` to get a list of examples.
