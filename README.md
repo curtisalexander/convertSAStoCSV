@@ -23,7 +23,7 @@ Uses SAS Enterprise Guide automation to convert between SAS binary (sas7bdat) an
   * `/repl`     ==> if argument is used, always replace output
 
 * Help:
-  * `/help`		  ==> print argument options and usage
+  * `/help`		==> print argument options and usage
 
 ## Example
 Run `cscript convertSAStoCSV.vbs /help` to get a list of examples.
@@ -33,8 +33,8 @@ Requires matching version of cscript.exe with SAS Enterprise Guide.
 
 For 32-bit EG on 64-bit Windows, use the counterintuitive version c:\Windows\SysWOW64\cscript.exe
 
-## Inspiration
-Thanks to [Chris Hemedinger](https://github.com/cjdinger)
+## [Standing on the shoulders](https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants)
+Thanks to [Chris Hemedinger](https://github.com/cjdinger) for his Enterprise Guide Automation writings.
 
 #### Reading
 [Doing More with EG Automation - PDF](http://support.sas.com/documentation/onlinedoc/guide/examples/SASGF2012/Hemedinger_298-2012.pdf)
