@@ -10,7 +10,7 @@
 '   - If a SAS log file is not explicitly noted, then the log is saved in the same directory as the executing script
 '   - Utilize a where clause on the SAS dataset
 '   - Protects against accidental replacing of files by prompting the user to replace a file if it already exists
-'   - Set the EG profile name using a configuration file
+'   - Set the EG profile name and version using a configuration file
 '   - Check command line arguments
 '
 ' Options:
@@ -23,7 +23,7 @@
 '       /log:       ==> location of log file
 '       /config:    ==> location of config file
 '                       formatted as an ini file, does not require ini extension
-'                       used to set the EG profile and any other config options
+'                       used to set the EG profile, version, and any other config options
 '       /where:     ==> where clause to be applied to SAS file
 '       /repl       ==> if argument is used, always replace output
 '
@@ -90,7 +90,7 @@ End If
 ' check if config file exists
 Dim sasRCFile
 If configFile = "" Then
-   sasRCFile = getUserProfile() & "\.sasrc"
+  sasRCFile = getUserProfile() & "\.sasrc"
   If Not dataFileExists(sasRCFile) Then
     Dim errorMsg : errorMsg = "A configuration file does not exist.  " _
                               & "The default file assumed is " _
