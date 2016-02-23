@@ -161,9 +161,15 @@ WScript.Echo "        if present, replace files without prompting"
 
 ' Application ==> Project ==> Code Collection (Program)
 
+' the argument to the method CreateObject should be the the version of Enterprise Guide
+' the version name is set within a config file
+' the config file should be of the form
+'   [EGVersion]
+'   version=5.1
+Dim egVersion: egVersion = getConfigVars(sasRCFile, "EGVersion", "version")
 ' create a new SAS Enterprise Guide automation session
 Dim Application
-Set Application = WScript.CreateObject("SASEGObjectModel.Application.5.1")
+Set Application = WScript.CreateObject("SASEGObjectModel.Application." & egVersion)
 
 ' the argument to the method SetActiveProfile should be the profile name within SAS Enterprise Guide
 ' the profile name is set within a config file
