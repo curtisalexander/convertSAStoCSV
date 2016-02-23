@@ -1,0 +1,9 @@
+; for use with the following scripts
+;   - convertSAStoCSV.vbs
+
+; to determine EGProfile, run script echoSASProfile.vbs
+[EGProfile]
+profile=myprofilename
+
+[ApplicationServer]
+server=SASApp
