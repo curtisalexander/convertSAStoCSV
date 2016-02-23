@@ -5,5 +5,8 @@
 [EGProfile]
 profile=myprofilename
 
+[EGVersion]
+version=5.1
+
 [ApplicationServer]
 server=SASApp
