@@ -42,15 +42,18 @@ Help:
     * Import from CSV to SAS
         * `cscript convertSAStoCSV.vbs /conv:import /sas:"\\server\SAS Files\myfile.sas7bdat" /csv:"\\server\CSV Files\myfile.csv" /log:"\\server\Log Files\myfile.log" /config:"\\server\Config Files\myconfigfile" /where:"myvariable < 10" /repl`
 
-## Requirements
-The script `echoSASProfile.vbs` assumes Enterprise Guide version 5.1.  Update accordingly if using a different version.
-
-Requires matching version of cscript.exe with SAS Enterprise Guide.
-
-For 32-bit EG on 64-bit Windows, use the counterintuitive version c:\Windows\SysWOW64\cscript.exe
-
 ## Configuration File
 Within the repo is a sample configuration file, `.sasrc`.  The value needed for the `[EGProfile]` option can be obtained by running the script `echoSASProfile.vbs`.
+
+## Requirements
+
+#### Technical Requirements
+* The script `echoSASProfile.vbs` assumes Enterprise Guide version 5.1.  Update accordingly if using a different version.
+* Requires matching version of cscript.exe with SAS Enterprise Guide.  For 32-bit EG on 64-bit Windows, use the counterintuitive version c:\Windows\SysWOW64\cscript.exe
+
+#### Software Requirements
+* When using file paths for either the `/sas` or `/csv` options, they point of reference is the server where the SAS code exectutes.  Thus, the server must have access to or understand the filepaths that are used for the `/sas` or `/csv` options.
+* As a best practice, use full paths for the `/sas` or `/csv` options rather than relying on mapped drive shortcuts.
 
 ## [Standing on the shoulders](https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants)
 Thanks to [Chris Hemedinger](https://github.com/cjdinger) for his Enterprise Guide Automation writings.
