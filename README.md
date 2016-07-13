@@ -52,7 +52,7 @@ Within the repo is a sample configuration file, `.sasrc`.  The value needed for 
 * Requires matching version of cscript.exe with SAS Enterprise Guide.  For 32-bit EG on 64-bit Windows, use the counterintuitive version c:\Windows\SysWOW64\cscript.exe
 
 #### Script Requirements
-* When using file paths for either the `/sas` or `/csv` options, they point of reference is the server where the SAS code exectutes.  Thus, the server must have access to or understand the filepaths that are used for the `/sas` or `/csv` options.
+* When using file paths for either the `/sas` or `/csv` options, the point of reference is the server where the SAS code exectutes.  Thus, the server must have access to or understand the filepaths that are used for the `/sas` or `/csv` options.
 * As a best practice, use full paths for the `/sas` or `/csv` options rather than relying on mapped drive shortcuts.
 
 ## [Standing on the shoulders](https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants)
